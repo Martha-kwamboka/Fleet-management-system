@@ -1,15 +1,47 @@
 use near_sdk::borsh::{self, BorshDeserialize, BorshSerialize};
 use near_sdk::near_bindgen;
 
+
 #[near_bindgen]
-#[derive(Default, BorshDeserialize, BorshSerialize)]
-pub struct Contract {
-    // SETUP CONTRACT STATE
+enum PersonnelRole{
+    driver,
+    conductor
 }
 
 #[near_bindgen]
+#[derive(Default, BorshDeserialize, BorshSerialize)]
+pub struct Vehicle {
+    numberPlate: String
+    types: String
+}
+
+#[near_bindgen]
+#[derive(Default, BorshDeserialize, BorshSerialize)]
+pub struct Personnel {
+    name: String
+    role: PersonnelRole
+}
+
+#[near_bindgen]
+#[derive(Default, BorshDeserialize, BorshSerialize)]
+pub struct Roles {
+    numberPlate: String
+    name: String
+}
+
+#[near_bindgen]
+#[derive(Default, BorshDeserialize, BorshSerialize)]
+pub struct Org {
+   vehicles : Vect<Vehicle>
+   roles : Vect<Roles>
+}
+
+
+#[near_bindgen]
 impl Contract {
-    // ADD CONTRACT METHODS HERE
+       fn allocateRole(&mut self,name:String, numberPlate: String){
+           
+       }
 }
 
 /*
